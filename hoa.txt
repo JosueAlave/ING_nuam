@@ -1,0 +1,8 @@
+//instrucciones para git
+
+Instalar el GitLens - Git supercharged  // en visual studio code
+
+con este link descargar el archivo zip 
+https://github.com/JosueAlave/ING_nuam
+
+con control shift y g se te abre el menu de los commits
