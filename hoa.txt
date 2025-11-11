@@ -6,3 +6,6 @@ con este link descargar el archivo zip
 https://github.com/JosueAlave/ING_nuam
 
 con control shift y g se te abre el menu de los commits
+
+
+##INSTRUCCIONES AUN EN PROCESO##    
