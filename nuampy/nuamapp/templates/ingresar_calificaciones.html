@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Calificaciones Tributarias</title>
+</head>
+<body>
+    <h2>Ingreso Calificación</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Mercado:</label>
+        <input type="text" name="mercado" required><br><br>
+        <label>Instrumento:</label>
+        <input type="text" name="instrumento" required><br><br>
+        <label>Año:</label>
+        <input type="number" name="anio" required><br><br>
+        <label>Fecha de pago:</label>
+        <input type="date" name="fecha_pago" required><br><br>
+        <label>Secuencia evento:</label>
+        <input type="number" name="secuencia_evento" required><br><br>
+        <label>Dividendo:</label>
+        <input type="number" step="0.00001" name="dividendo" required><br><br>
+        <label>Valor historico:</label>
+        <input type="number" step="0.00001" name="valor_historico" required><br><br>
+        <label>Descripción:</label>
+        <input type="text" name="descripcion" required><br><br>
+
+        
+        <label>ISFUT:</label>
+        <select name="isfut" required>
+            <option value="SI">SI</option>
+            <option value="NO" selected>NO</option>
+        </select><br><br>
+
+        <label>Factor actualización:</label>
+        <input type="number" step="0.00001" name="factor_actualizacion" required><br><br>
+        <label>Tipo sociedad :</label>
+        <input type="text" name="tipo_sociedad" required><br><br>
+        <label>Corredor :</label>
+        <input type="text" name="corredor" required><br><br>
+
+        <h3>Factores</h3>
+        {% for i in factores %}
+            <label>Factor {{ i }}:</label>
+            <input type="number" step="0.00001" name="factor_{{ i }}" required>
+            <br><br>
+        {% endfor %}
+
+        <button type="submit">Guardar</button>
+        <a href="{% url 'home' %}" class="btn">Regresar al home</a>
+    </form>
+
+</body>
+</html>

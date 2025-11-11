@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina inicio (login)</title>
+    <link rel="icon" type="image/png" href="{% static 'prueba/img/Nuam.png' %}">
+    <link rel="stylesheet" href="{% static 'nuamapp/css/login.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="header-bar">
+            <h1 class="header-title">Login</h1>
+        </div>
+        
+        <div class="main-content">
+            <div class="instruction-box">
+                <p>Por favor ingrese sus datos para iniciar sesion</p>
+            </div>
+            
+            {% if request.session.user_id %}
+                <p>Ya estás logueado como: {{ request.session.user_nombre }}</p>
+                <a href="{% url 'home' %}">Ir al Home</a> | 
+                <a href="{% url 'logout' %}">Cerrar Sesión</a>
+            {% else %}
+                <form method="post" id="loginForm">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="id_correo" class="form-label">USUARIO</label>
+                        {{ form.correo }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="id_contrasena" class="form-label">CONTRASEÑA</label>
+                        {{ form.contrasena }}
+                    </div>
+                    
+                    {% if error %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endif %}
+                        
+                    <button type="submit" class="login-button">Iniciar sesion</button>
+                </form>
+                
+                <div class="logo-placeholder">
+                    <div class="logo-box">
+                        <p>93 x 51</p>
+                        <p>LOGO EMPRESA</p>
+                    </div>
+                </div>
+                
+                <a href="{% url 'home' %}" class="guest-button">Ingresar como usuario invitado</a>
+            {% endif %}
+        </div>
+        
+        <div class="footer-bar"></div>
+    </div>
+
+    {% if success %}
+    <script>
+        alert('¡Inicio de sesión exitoso! Bienvenido {{ user_nombre }}');
+    </script>
+    {% endif %}
+</body>
+</html>
+

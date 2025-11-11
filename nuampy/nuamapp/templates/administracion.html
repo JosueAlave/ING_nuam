@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administrador</title>
+    <link rel="stylesheet" href="{% static 'nuamapp/css/administracion.css' %}">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Panel de administrador</h1>
+            <a href="{% url 'home' %}" class="btn-home">Volver al Home</a>
+        </div>
+        
+        <div class="admin-content">
+            <div class="user-count">
+                <p>Total de usuarios registrados: <strong>{{ total_usuarios }}</strong></p>
+            </div>
+            
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="users-list-container">
+                <div class="users-grid">
+                    {% for usuario in usuarios %}
+                    <div class="user-item">
+                        <a href="{% url 'modificar_usuario' usuario.id %}" class="user-input">
+                            {{ usuario.nombre }}
+                        </a>
+                    </div>
+                    {% empty %}
+                    <div class="empty-message">No hay usuarios registrados</div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <a href="{% url 'crear_usuario' %}" class="btn-create">Crear cuenta</a>
+                {% if usuarios %}
+                    <p class="help-text">Haga click para eliminar o modificar</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

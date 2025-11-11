@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Usuario</title>
+    <link rel="stylesheet" href="{% static 'nuamapp/css/administracion.css' %}">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Eliminar Usuario</h1>
+        </div>
+        
+        <div class="admin-content">
+            <div class="delete-confirmation">
+                <p>¿Está seguro de eliminar al usuario <strong>{{ usuario.nombre }}</strong> ({{ usuario.correo }})?</p>
+                <p class="warning">Esta acción no se puede deshacer.</p>
+            </div>
+            
+            <form method="post" class="delete-form">
+                {% csrf_token %}
+                <div class="form-actions">
+                    <button type="submit" class="btn-delete">Eliminar</button>
+                    <a href="{% url 'administrar' %}" class="btn-cancel">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+/* Formas decorativas celestes estáticas en el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
+    border-radius: 50% 30% 70% 40%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, #B0E0E6 0%, #87CEEB 100%);
+    border-radius: 40% 60% 30% 70%;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 550px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.header-bar {
+    background: linear-gradient(135deg, #87CEEB 0%, #6BB6D6 100%);
+    padding: 20px 25px;
+    border-bottom: 2px solid #4A90E2;
+}
+
+.header-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.instruction-box {
+    background: linear-gradient(135deg, #E8F4F8 0%, #D4E8F0 100%);
+    border: 1px solid #87CEEB;
+    border-radius: 8px;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(135, 206, 235, 0.2);
+}
+
+.instruction-box p {
+    color: #2c3e50;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 5px;
+}
+
+.form-label {
+    color: #34495e;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #d0d0d0;
+    border-radius: 25px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: #87CEEB;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.2);
+    background-color: #f8f9fa;
+}
+
+.login-button {
+    background: linear-gradient(135deg, #87CEEB 0%, #6BB6D6 100%);
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #6BB6D6 0%, #5AA5C5 100%);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.5);
+}
+
+.login-button:active {
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4);
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffeaea;
+    border-radius: 8px;
+    border: 1px solid #e74c3c;
+}
+
+.logo-placeholder {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.logo-box {
+    width: 93px;
+    height: 51px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #87CEEB;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(135, 206, 235, 0.2);
+}
+
+.logo-box p {
+    color: #6c757d;
+    font-size: 10px;
+    margin: 2px 0;
+    font-weight: 500;
+}
+
+.guest-button {
+    background-color: #ffffff;
+    border: 2px solid #87CEEB;
+    color: #4A90E2;
+    padding: 10px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: auto;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.guest-button:hover {
+    background-color: #E8F4F8;
+    border-color: #6BB6D6;
+    color: #357ABD;
+    box-shadow: 0 4px 10px rgba(135, 206, 235, 0.3);
+}
+
+.footer-bar {
+    background: linear-gradient(135deg, #87CEEB 0%, #6BB6D6 100%);
+    border-top: 2px solid #4A90E2;
+    height: 25px;
+    width: 100%;
+}

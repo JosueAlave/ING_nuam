@@ -1,0 +1,11 @@
+<h2>Cargar Montos CSV</h2>
+
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+{% if success %}<p style="color:green">{{ success }}</p>{% endif %}
+
+<form  action="" method="POST"  enctype="multipart/form-data">
+    {% csrf_token % }
+    {{ form.as_p }}
+    <button type="submit"> Subir archivo</button>
+    <a href="{% url 'home' %}" class="btn">Regresar al home</a>
+</form>
